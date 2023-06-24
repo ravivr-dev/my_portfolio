@@ -8,8 +8,10 @@ class HomeBodyComponentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(
+        Flexible(
+          flex: 3,
           child: Text.rich(
             TextSpan(
               text: "I'm ",
@@ -34,13 +36,14 @@ class HomeBodyComponentWidget extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          color: Theme.of(context).colorScheme.secondary.withOpacity(.05),
-          height: 350,
-          width: 350,
-          child: Image.network(
-            "https://picsum.photos/350/350",
-            fit: BoxFit.cover,
+        Flexible(
+          flex: 1,
+          child: Container(
+            color: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+            child: Image.network(
+              "https://picsum.photos/350/350",
+              fit: BoxFit.cover,
+            ),
           ),
         )
       ],

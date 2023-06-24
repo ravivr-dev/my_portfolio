@@ -18,42 +18,56 @@ class _ContactInfoComponentWidgetState
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Flexible(
+          child: _getSocialMediaInfoAndLinks(),
+        ),
+        _emailMeOn(),
+      ],
+    );
+  }
+
+  _getSocialMediaInfoAndLinks() {
+    return Row(
       children: [
         _getSocialMediaIcons(
           FontAwesomeIcons.linkedinIn,
-          callBack: () => _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
+          callBack: () =>
+              _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
         ),
         const CustomSpacerWidget(
           width: 10,
         ),
         _getSocialMediaIcons(
           FontAwesomeIcons.github,
-          callBack: () => _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
+          callBack: () =>
+              _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
         ),
         const CustomSpacerWidget(
           width: 10,
         ),
         _getSocialMediaIcons(
           FontAwesomeIcons.instagram,
-          callBack: () => _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
+          callBack: () =>
+              _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
         ),
         const CustomSpacerWidget(
           width: 10,
         ),
         _getSocialMediaIcons(
           FontAwesomeIcons.facebook,
-          callBack: () => _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
+          callBack: () =>
+              _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
         ),
         const CustomSpacerWidget(
           width: 10,
         ),
         _getSocialMediaIcons(
           FontAwesomeIcons.twitter,
-          callBack: () => _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
+          callBack: () =>
+              _handleUrlLauncher(url: "https://github.com/ravivr-dev"),
         ),
-        Expanded(child: Container()),
-        _emailMeOn(),
       ],
     );
   }
@@ -77,12 +91,14 @@ class _ContactInfoComponentWidgetState
   }
 
   _emailMeOn() {
-    return InkWell(
-      onTap: () => _sendEmail(),
-      child: Text(
-        "ravi@ailoitte.com",
-        style: AppFonts.regularStyle(
-          fontSize: 16,
+    return Flexible(
+      child: InkWell(
+        onTap: () => _sendEmail(),
+        child: Text(
+          "ravi@ailoitte.com",
+          style: AppFonts.regularStyle(
+            fontSize: 16,
+          ),
         ),
       ),
     );
